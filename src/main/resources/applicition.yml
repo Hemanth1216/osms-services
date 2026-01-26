@@ -1,9 +1,12 @@
 spring:
   datasource:
-    url: mysql://root:CwQLzCHTOzfApHWwNEMhbzcfCTOVaaVQ@hopper.proxy.rlwy.net:19252/railway
-    username: root
-    password: CwQLzCHTOzfApHWwNEMhbzcfCTOVaaVQ
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?useSSL=true&serverTimezone=UTC
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
 
   jpa:
     hibernate:
       ddl-auto: validate
+
+server:
+  port: ${PORT:8080}
