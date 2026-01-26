@@ -8,5 +8,9 @@ spring:
     hibernate:
       ddl-auto: validate
 
+security:
+  jwt:
+    secret-key: ${JWT_SECRET}
+
 server:
   port: ${PORT:8080}
