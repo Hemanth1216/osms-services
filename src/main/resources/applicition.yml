@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: mysql://root:CwQLzCHTOzfApHWwNEMhbzcfCTOVaaVQ@hopper.proxy.rlwy.net:19252/railway
+    username: root
+    password: CwQLzCHTOzfApHWwNEMhbzcfCTOVaaVQ
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
