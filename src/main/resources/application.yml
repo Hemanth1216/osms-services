@@ -2,8 +2,8 @@ spring:
   app:
     proof: "I AM LOADING application.yml"
   datasource:
-    url: jdbc:mysql://hopper.proxy.rlwy.net:19252/railway
-    username: ${DB_USER}
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
 
   jpa:
@@ -13,6 +13,3 @@ spring:
 security:
   jwt:
     secret-key: ${JWT_SECRET}
-
-server:
-  port: ${PORT:8080}
