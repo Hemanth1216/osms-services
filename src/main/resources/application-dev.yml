@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://${DB_DEV_HOST}:${DB_PORT}/${DB_DEV_NAME}
+    url: jdbc:mysql://${DB_DEV_HOST}:${DB_DEV_PORT}/${DB_DEV_NAME}
     username: ${DB_DEV_USER}
-    password: ${DB_PASSWORD}
+    password: ${DB_DEV_PASSWORD}
 
 security:
   jwt:
