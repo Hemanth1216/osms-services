@@ -54,11 +54,15 @@ public class AuthService implements UserDetailsService {
     }
 
     public void addCookie(HttpServletResponse response, String name, String token) {
-        Cookie cookie = new Cookie(name, token);
-        cookie.setHttpOnly(true);
-        cookie.setSecure(true);
-        cookie.setPath("/");
-        response.addCookie(cookie);
+         ResponseCookie cookie = ResponseCookie.from(name, token)
+            .httpOnly(true)
+            .secure(true)
+            .sameSite("None")
+            .path("/")
+            .maxAge(Duration.ofMinutes(15))
+            .build();
+
+        response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
     }
 
     public String logout(HttpServletRequest request, HttpServletResponse response) {
@@ -67,10 +71,15 @@ public class AuthService implements UserDetailsService {
     }
 
     public void deleteCookie(HttpServletResponse response, String name) {
-        Cookie cookie = new Cookie(name, null);
-        cookie.setMaxAge(0);
-        cookie.setPath("/");
-        response.addCookie(cookie);
+        ResponseCookie cookie = ResponseCookie.from(name, "")
+            .httpOnly(true)
+            .secure(true)
+            .sameSite("None")
+            .path("/")
+            .maxAge(0)
+            .build();
+
+        response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
     }
 
     @Override
