@@ -16,6 +16,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseCookie;
+import java.time.Duration;
 
 @Service
 public class AuthService implements UserDetailsService {
@@ -59,7 +62,7 @@ public class AuthService implements UserDetailsService {
             .secure(true)
             .sameSite("None")
             .path("/")
-            .maxAge(Duration.ofMinutes(15))
+            .maxAge(Duration.ofMinutes(60))
             .build();
 
         response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
