@@ -1,6 +1,6 @@
 spring:
   app:
-    proof: "I AM LOADING application.yml"
+    proof: "I AM on application.yml"
   datasource:
     url: ${DB_URL}
     username: ${DB_USERNAME}
